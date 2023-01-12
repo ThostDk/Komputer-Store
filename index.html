@@ -8,33 +8,46 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    <link href="/index.css" rel="stylesheet">
+    <link href="/Komputer-Store/index.css" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container-fluid p-5 bg-black text-white text-left">
-        <h1>Computer Store</h1>
+    <div class="container-fluid p-5 text-white text-left" id="headerbar">
+        <h1 id="headerText">Computer Store</h1>
     </div>
 
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-sm-4">
+        <div class="row" id="row1">
+            <div class="col-sm-4" id="row1Container">
                 <h2>Joe Banker</h2>
                 <p>Balance</p>
-                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-primary btn-lg btn-success" id="balanceBtn">Get a loan</button>
             </div>
             <div class="col-sm-4">
+            <div class="col-sm-4" id="row1Container">
                 <h2>Work</h2>
-                <p>Pay</p>
-                <button type="button" class="btn btn-primary">Primary</button>
-                <button type="button" class="btn btn-warning">Warning</button>
+                <div class="row">
+                    <div class="col-sm-2"><p>Pay</p></div>
+                    <div class="col-sm-10" id="payAmount"><p>100 Kr</p></div>
+                </div>
+                
+                
+                
+                
+                <button type="button" class="btn btn-warning" id="bankBtn">Bank</button>
+                <button type="button" class="btn btn-primary" id="workBtn">Work</button>
+            </div>
+
+            
+                
             </div>
             <div class="col-sm-4">
+            <div class="col-sm-4" id="row1Container">
                 <h2>Laptops</h2>
                 <div class="dropdown">
                     <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
-                        Dropdown button
+                        Intol Celeroon E10
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Link 1</a></li>
@@ -42,36 +55,39 @@
                         <li><a class="dropdown-item" href="#">Link 3</a></li>
                     </ul>
                 </div>
-                <h3>Features:</h3>
-                <p>
-                    It has a screen <br>
+                <h5>Features:</h5>
+                <p>It has a screen <br>
                     There's a keyboard<br>
                     (Some keys might be missing)
-
                 </p>
             </div>
+                
+            </div>
+        </div>
+        <div class="row" id="row2">
+            <div class="col-3">
+                    <img src="/Images/Laptop1.png" id="laptop1">
+            </div>
+            <div class="col-4 ">
+                <div class="col-12" id="row2TopCol"><h2>INTOL CELERON E10</h2></div>
+                <div class="col-12" id="row2BottomCol"><p>This laptop will turn on! it is perfect for the first time user who likes to have a computer around </p></div>
+                    
+                
+            </div>
+            <div class="col-2 "></div>
+            <div class="col-3">
+                <div class="col-12" id="row2TopCol"><h4 id="productPrice">1500 kr</h4></div>
+                <div class="col-12 text-center" id="row2BottomCol"><button type="button" class="btn btn-primary btn-lg btn-success" id="buyNowBtn">BUY NOW</button></div>
+                
+                
+            </div>
+
+
         </div>
     </div>
 
     <div class="container-fluid mt-12">
-        <div class="row">
-            <div class="col p-3 bg-black">
-                <div class="col p-4">
-                    <img src="/Images/Laptop1.png" id="laptop1">
-                </div>
-
-            </div>
-            <div class="col p-3 ">
-                
-                    <h2>INTOL CELERON E10</h2>
-                
-            </div>
-            <div class="col p-6 bg-black">
-                <h2>INTOL CELERON E10</h2>
-            </div>
-
-
-        </div>
+        
     </div>
 
 
