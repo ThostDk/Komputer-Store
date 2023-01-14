@@ -6,19 +6,24 @@
     margin-left: 260px;
     
 }
-#balanceBtn {
+#getALoanBtn {
     width: 200px!important;
+   
+}
+
+#bankBtn,#repayLoanBtn,#workBtn{
+    margin-top: 20px;
 }
 
 #bankBtn {
     width: 100px!important;
-    margin-top: 80px;
+    
 }
 #workBtn {
     width: 100px!important;
-    margin-top: 80px;
+    
 }
-#balanceAmount{
+#balanceAmount, #loanDebtAmount{
     
     text-align: right;
     
