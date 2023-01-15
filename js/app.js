@@ -1,5 +1,5 @@
 import bank from "./bank.js"
-import fetchJsonPost from "./api/post.js";
+import fetchJsonPosts from "./api/post.js";
 import postView from "./post/postView.js";
 
 //Connecting HTML Buttons to the javascript
@@ -8,8 +8,12 @@ const bankBtnElement = document.getElementById("bankBtn");
 const repayLoanBtnElement = document.getElementById("repayLoanBtn");
 const workBtnElement = document.getElementById("workBtn");
 
+const lapTopDropdownIdElement = document.getElementById("laptopIdSelection")
+const featuresTextElement = document.getElementById("featuresText");
+
+
 //Post variables
-const initialPosts = await fetchJsonPost();
+const initialPosts = await fetchJsonPosts();
 postView.initializePosts(initialPosts);
 // button Click events
 workBtnElement.addEventListener("click", () => {
@@ -24,27 +28,22 @@ repayLoanBtnElement.addEventListener("click", () => {
 bankBtnElement.addEventListener("click", () => {
     bank.bankSalary();
 });
+lapTopDropdownIdElement.addEventListener("click", () => {
+    lapTopDropdownIdElement.ch
+    click()
+});
+lapTopDropdownIdElement.addEventListener('show.bs.dropdown', event => {
+    lapTopDropdownIdElement.ch
+    click()
+});
 
+lapTopDropdownIdElement.onclick = console.log("clicking")
 // post content
 renderActivePosts();
 function renderActivePosts(){
-    postContainerElement.innerHTML = "";
-    const userIdElementText = userIdElement.value.Trim();
-
-    if(userIdElementText !== "") {
-        postView.filterPostByUserId(Number(userIdElementText))
-    }
-
-    const activePosts = postView.getPosts()
-
-    for (const activePost of activePosts) {
-        const newPostElement = document.createElement("p")
-        newPostElement.innerText = activePost.title
-        postContainerElement.append(newPostElement)
-    }
+    
 }
 
-filterButtonElement.addEventListener("click", () => {
-    renderActivePosts();
-})
+
+
 

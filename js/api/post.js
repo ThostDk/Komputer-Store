@@ -1,9 +1,11 @@
-async function fetchJsonPost(){
+async function fetchJsonPosts(){
     try {
-        const postResult = await fetch("https://hickory-quilled-actress.glitch.me/computers")
+        const postsResult = await fetch("https://hickory-quilled-actress.glitch.me/computers")
+        const posts = await postsResult.json();
+        return posts;
     }
     catch(error){
         console.log(error)
     }
 }
-export default fetchJsonPost;
+export default fetchJsonPosts;

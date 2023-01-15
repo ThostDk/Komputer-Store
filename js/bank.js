@@ -11,25 +11,44 @@ const loanDebtDescriptionTextElement = document.getElementById("loanDebtDescript
 //Connecting HTML Buttons to the javascript
 const repayLoanBtnElement = document.getElementById("repayLoanBtn")
 
-
-updateBankInfo()
-
-const bank = {
-    
-    bankBalance,
-    loanDebt,
-    work,
-    takeLoan,
-    repayLoan,
-    bankSalary
-
+//#region private  functions
+// function for toggling between showing/hiding Loan HTML text & buttons (Boolean Parameter)
+const toggleLoanHtmlDisplay = (displayHTML) => {
+    if(displayHTML)
+    {
+        loanDebtDescriptionTextElement.style.display = "";
+        loanDebtAmountTextElement.style.display = "";
+        repayLoanBtnElement.hidden = false;
+    }
+    else
+    {
+        loanDebtDescriptionTextElement.style.display = "none";
+        loanDebtAmountTextElement.style.display = "none";
+        repayLoanBtnElement.hidden = true;
+    }
 }
+// refreshes the bank details for the HTML text
+const updateBankInfo = () => {
+    loanDebtAmountTextElement.textContent   = `${loanDebt} kr`;
+    balanceAmountTextElement.textContent    = `${bankBalance} kr` ;
+    payAmountTextElement.textContent        = `${pay} kr`;
+    if(loanDebt <= 0){
+        toggleLoanHtmlDisplay(false)
+    }
+    else{
+        toggleLoanHtmlDisplay(true)
+    }
+}
+//#endregion private functions
+
+
+
 //#region public functions
-function work(){
+const work = () => {
     pay+=100;
     updateBankInfo();
 }
-function repayLoan() {
+const repayLoan = () => {
     if(loanDebt > 0 && pay > 0)
     {
         pay -=loanDebt
@@ -51,7 +70,7 @@ function repayLoan() {
 }
 
 
-function takeLoan() {
+const takeLoan = () => {
     if(loanDebt <= 0)
     {
         let loanTmp = "";
@@ -70,8 +89,7 @@ function takeLoan() {
 }
 
 
-function bankSalary() 
-{
+const bankSalary = () => {
     if(pay > 0){
         if(loanDebt > 0)
         {
@@ -97,42 +115,18 @@ function bankSalary()
 
 //#endregion public functions
 
-//#region Private functions
+// updates the html text to ensure it displays the actual bank informations
+updateBankInfo()
+const bank = {
+    
+    bankBalance,
+    loanDebt,
+    work,
+    takeLoan,
+    repayLoan,
+    bankSalary
 
-// refreshes the bank details for the HTML text
-function updateBankInfo()
-{
-    loanDebtAmountTextElement.textContent   = `${loanDebt} kr`;
-    balanceAmountTextElement.textContent    = `${bankBalance} kr` ;
-    payAmountTextElement.textContent        = `${pay} kr`;
-    if(loanDebt <= 0){
-        toggleLoanHtmlDisplay(false)
-    }
-    else{
-        toggleLoanHtmlDisplay(true)
-    }
 }
-
-// function for toggling between showing/hiding Loan HTML text & buttons (Boolean Parameter)
-function toggleLoanHtmlDisplay(displayHTML)
-{
-    if(displayHTML)
-    {
-        loanDebtDescriptionTextElement.style.display = "";
-        loanDebtAmountTextElement.style.display = "";
-        repayLoanBtnElement.hidden = false;
-    }
-    else
-    {
-        loanDebtDescriptionTextElement.style.display = "none";
-        loanDebtAmountTextElement.style.display = "none";
-        repayLoanBtnElement.hidden = true;
-    }
-}
-
-//#endregion Private functions
-
-
 
 
 export default bank;

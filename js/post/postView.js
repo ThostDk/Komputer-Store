@@ -3,19 +3,21 @@ let currentPosts = [];
 
 const getPosts = () => [...currentPosts]
 
+// function that grabs the raw json text and adds it to an array 
 const initializePosts = (post) => {
     allPosts = post
     currentPosts = post
 }
 
-const filterPostByUserId = (userId) => {
-    currentPosts = allPosts.filter(p => p.userId === userId)
+// function that filters the 
+const filterPostByLaptopId = (laptopId) => {
+    currentPosts = allPosts.filter(p => p.laptopId === laptopId)
 }
 
 const postView = {
     getPosts,
     initializePosts,
-    filterPostByUserId
+    filterPostByLaptopId
 }
 
 export default postView
