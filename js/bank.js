@@ -1,6 +1,6 @@
 let bankBalance = 500;
-let loanDebt = 14;
-let pay = 1;
+let loanDebt = 124;
+let pay = 1020;
 
 //Connecting HTML Text to the javascript
 const balanceAmountTextElement = document.getElementById("balanceAmount")
@@ -18,12 +18,17 @@ const bank = {
     
     bankBalance,
     loanDebt,
+    work,
     takeLoan,
     repayLoan,
     bankSalary
 
 }
 //#region public functions
+function work(){
+    pay+=100;
+    updateBankInfo();
+}
 function repayLoan() {
     if(loanDebt > 0 && pay > 0)
     {
