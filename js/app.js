@@ -12,5 +12,7 @@ getALoanBtnElement.addEventListener("click", () => {
 repayLoanBtnElement.addEventListener("click", () => {
     bank.repayLoan();
 });
-
+bankBtnElement.addEventListener("click", () => {
+    bank.bankSalary();
+});
 

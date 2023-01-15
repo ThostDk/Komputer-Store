@@ -1,6 +1,6 @@
 let bankBalance = 500;
-let loanDebt = 1200;
-let pay = 1450;
+let loanDebt = 14;
+let pay = 1;
 
 //Connecting HTML Text to the javascript
 const balanceAmountTextElement = document.getElementById("balanceAmount")
@@ -13,20 +13,19 @@ const repayLoanBtnElement = document.getElementById("repayLoanBtn")
 
 
 updateBankInfo()
-if(loanDebt <= 0){toggleLoanHtmlDisplay(false)}
-
 
 const bank = {
     
     bankBalance,
     loanDebt,
     takeLoan,
-    repayLoan
+    repayLoan,
+    bankSalary
 
 }
 //#region public functions
 function repayLoan() {
-    if(loanDebt > 0)
+    if(loanDebt > 0 && pay > 0)
     {
         pay -=loanDebt
         if(pay > 0)
@@ -40,6 +39,9 @@ function repayLoan() {
             pay = 0;
         }
         updateBankInfo();
+    }
+    else if(pay <= 0 && loanDebt > 0){
+        alert(`Insufficient funds to pay your loan`);
     }
 }
 
@@ -57,30 +59,53 @@ function takeLoan() {
         }
         loanDebt += loanTmp;
         bankBalance += loanDebt;
-        toggleLoanHtmlDisplay(true)
-        loanDebtAmountTextElement.textContent = loanTmp;
-        balanceAmountTextElement.textContent = bankBalance + " kr";
+        updateBankInfo();
     }
     else{alert(`Sorry, you still need to repay your previous loan of ${loanDebt} kr. before taking another loan`);}
 }
 
 
-function bankMoney() 
+function bankSalary() 
 {
-
+    if(pay > 0){
+        if(loanDebt > 0)
+        {
+            const payStartAmount = pay;
+            const debtStartAmount = loanDebt;
+            
+            loanDebt -= pay*0.1;
+            pay*=0.9;
+            //loanDebt => (loanDebt < 0) ? pay += Math.abs(loanDebt): pay
+            if(loanDebt < 0)
+            {
+                pay += Math.abs(loanDebt)
+            }
+                alert(`up to 10% (${payStartAmount - pay} kr.) of your pay (${payStartAmount}kr.) goes to paying your debt of ${debtStartAmount} kr. The rest ${pay} kr. is being transferred to your bank account.`);
+            }
+        
+        bankBalance += pay;
+        pay= 0;
+        updateBankInfo();
+    }
+    else{alert(`Sorry, but there is nothing to transfer at the moment`);}
 }
 
 //#endregion public functions
 
 //#region Private functions
 
+// refreshes the bank details for the HTML text
 function updateBankInfo()
 {
     loanDebtAmountTextElement.textContent   = `${loanDebt} kr`;
     balanceAmountTextElement.textContent    = `${bankBalance} kr` ;
     payAmountTextElement.textContent        = `${pay} kr`;
-    if(loanDebt <= 0){toggleLoanHtmlDisplay(false)}
-    else{toggleLoanHtmlDisplay(true)}
+    if(loanDebt <= 0){
+        toggleLoanHtmlDisplay(false)
+    }
+    else{
+        toggleLoanHtmlDisplay(true)
+    }
 }
 
 // function for toggling between showing/hiding Loan HTML text & buttons (Boolean Parameter)
