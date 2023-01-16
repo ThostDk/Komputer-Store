@@ -10,7 +10,7 @@ const selectedLaptopPriceElement = document.getElementById("productPrice")
 const selectedLaptopImageElement = document.getElementById("laptopImage")
 
 // function that grabs the json elements and adds it to an array 
-const TransferJsonToPosts = (Json) => {
+const transferJsonToPosts = (Json) => {
     allPosts = Json
 }
 
@@ -18,22 +18,23 @@ const TransferJsonToPosts = (Json) => {
 const filterPostByLaptopId = (laptopId) => {
     currentPost = allPosts[laptopId]
 }
-const getPostTitle = () => currentPost.title
-const getPostDescription = () => currentPost.description
-const getPostSpecs = () => currentPost.specs
-const getPostPrice = () => currentPost.price
-const getPostImage = () => `https://hickory-quilled-actress.glitch.me/${currentPost.image}`
+const getPostTitle = () => currentPost.title;
+const getPostDescription = () => currentPost.description;
+const getPostSpecs = () => currentPost.specs;
+const getPostPrice = () => currentPost.price;
+const getPostImage = () => `https://hickory-quilled-actress.glitch.me/${currentPost.image}`;
 
 const updateSelectedLaptopHTML = () => {
-    selectedLaptopImageElement.src = `https://hickory-quilled-actress.glitch.me/${currentPost.image}`
-    selectedLaptopTitleElement.textContent = currentPost.title
-    selectedLaptopDescriptionElement.textContent = currentPost.description
-    selectedLaptopFeaturesElement.textContent = currentPost.specs
-    selectedLaptopPriceElement.textContent = currentPost.price
+    selectedLaptopTitleElement.textContent = getPostTitle();
+    selectedLaptopDescriptionElement.textContent = getPostDescription();
+    selectedLaptopFeaturesElement.textContent = getPostSpecs();
+    selectedLaptopPriceElement.textContent = getPostPrice();
+    selectedLaptopImageElement.src = getPostImage();
+    
 }
 
 const fillDropdown = () => {
-    lapTopDropdownElement.onchange = () => changeDropdown(currentPost)
+    lapTopDropdownElement.onchange = changeDropdown
     allPosts.forEach(element => {
         let dropdownChildElement = document.createElement("option");
         dropdownChildElement.textContent = element.title;
@@ -50,8 +51,8 @@ function changeDropdown() {
     //alert(selectedValue);
 }
 
-const product = {
-    initializePosts: TransferJsonToPosts,
+const productHandler = {
+    transferJsonToPosts: transferJsonToPosts,
     filterPostByLaptopId,
     getPostTitle,
     getPostDescription,
@@ -62,4 +63,4 @@ const product = {
     fillDropdown
 }
 
-export default product;
+export default productHandler;

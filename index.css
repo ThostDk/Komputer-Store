@@ -1,3 +1,4 @@
+
 #headerbar{
     background-color: rgb(36, 34, 34);
     
@@ -76,4 +77,14 @@
 }
 #laptopImage{
     width: 200px;
+    border-radius: 10px;
+    box-shadow: 4px 4px;
+    margin-top: -18px;
+    
+}
+#dropdown{
+    box-shadow: 4px 4px;
+    border-radius: 5px;
+    font-weight: 900;
+    
 }
