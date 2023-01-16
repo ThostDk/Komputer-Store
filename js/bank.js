@@ -98,7 +98,7 @@ const bankSalary = () => {
             
             loanDebt -= pay*0.1;
             pay*=0.9;
-            //loanDebt => (loanDebt < 0) ? pay += Math.abs(loanDebt): pay
+            
             if(loanDebt < 0)
             {
                 pay += Math.abs(loanDebt)

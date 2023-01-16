@@ -58,19 +58,10 @@
             <div class="col-sm-4">
             <div class="col-sm-4" id="row1Container">
                 <h2>Laptops</h2>
-                <div class="dropdown" id="laptopIdSelection">
-                    <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" >
-                        Intol Celeroon E10
-                    </button>
-                    <ul class="dropdown-menu" >
-                        <li><a class="dropdown-item" id="laptop-1" value="ID1" href="#">Laptop 1</a></li>
-                        <li><a class="dropdown-item" id="laptop-2" value="ID2" href="#">Laptop 2</a></li>
-                        <li><a class="dropdown-item" id="laptop-3" value="ID3" href="#">Laptop 3</a></li>
-                        <li><a class="dropdown-item" id="laptop-4" value="ID4" href="#">Laptop 4</a></li>
-                        <li><a class="dropdown-item" id="laptop-5" value="ID5" href="#">Laptop 5</a></li>
-                        <li><a class="dropdown-item" id="laptop-6" value="ID6" href="#">Laptop 6</a></li>
-                    </ul>
-                </div>
+                <select id="dropdown">
+
+                </select>
+                
                 <h5>Features:</h5>
                 <p id="featuresText">It has a screen <br>
                     There's a keyboard<br>
@@ -82,11 +73,11 @@
         </div>
         <div class="row" id="row2">
             <div class="col-3">
-                    <img src="/Images/Laptop1.png" id="laptop1">
+                    <img src="/Images/Laptop1.png" id="laptopImage">
             </div>
             <div class="col-4 ">
-                <div class="col-12" id="row2TopCol"><h2>INTOL CELERON E10</h2></div>
-                <div class="col-12" id="row2BottomCol"><p>This laptop will turn on! it is perfect for the first time user who likes to have a computer around </p></div>
+                <div class="col-12" id="row2TopCol"><h2 id="selectedLaptopTitle">INTOL CELERON E10</h2></div>
+                <div class="col-12"  id="row2BottomCol"><p id="selectedLaptopDescription">This laptop will turn on! it is perfect for the first time user who likes to have a computer around </p></div>
                     
                 
             </div>
