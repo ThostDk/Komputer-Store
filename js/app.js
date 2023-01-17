@@ -1,6 +1,6 @@
 import bank from "./bank.js"
-import fetchJsonPosts from "./api/post.js";
-import productHandler from "./productHandler.js"
+import fetchJsonPosts from "./fetchPost.js";
+import products from "./products.js"
 
 //Connecting HTML Buttons to the javascript
 const getALoanBtnElement = document.getElementById("getALoanBtn");
@@ -12,10 +12,10 @@ const buyNowBtnElement = document.getElementById("buyNowBtn");
 //grabs the Jsonfile
 const ProductsPost = await fetchJsonPosts();
 
-productHandler.transferJsonToPosts(ProductsPost);
-productHandler.filterPostByLaptopId(0);
-productHandler.fillDropdown();
-productHandler.updateSelectedLaptopHTML()
+products.transferJsonToPosts(ProductsPost);
+products.filterPostByLaptopId(0);
+products.fillDropdown();
+products.updateSelectedLaptopHTML()
 
 // button Click events
 workBtnElement.addEventListener("click", () => {
@@ -31,7 +31,7 @@ bankBtnElement.addEventListener("click", () => {
     bank.bankSalary();
 });
 buyNowBtnElement.addEventListener("click", () => {
-    bank.buyNow(productHandler.getPostPrice());
+    bank.buyNow(products.getPostPrice());
 });
 
 

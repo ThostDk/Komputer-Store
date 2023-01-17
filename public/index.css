@@ -71,7 +71,26 @@
     width: 200px!important;
     background-color: #0896f5!important;
     
+    
 }
+#shoppingcartImg{
+    float: right;
+    width: 0px;
+}
+#buyNowBtn:hover{
+    color: rgb(0, 0, 0)!important;
+    background-color: yellow!important;
+    
+}
+#buyNowBtn:hover > #shoppingcartImg{
+    display: block!important;
+    width: 30px;
+}
+
+
+
+
+
 #featuresText{
     font-size: x-small;
 }
@@ -88,3 +107,4 @@
     font-weight: 900;
     
 }
+

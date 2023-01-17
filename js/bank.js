@@ -35,6 +35,7 @@ const updateBankInfo = () => {
         toggleLoanHtmlDisplay(true)
     }
 }
+
 //#endregion private functions
 
 
@@ -108,40 +109,38 @@ const bankSalary = () => {
 // function for buying the current selected product.
 // only allow you to buy if you have sufficient funds on your bank account
 const buyNow = (productCost) => {
-    if (bankBalance >= productCost) {
+    let didBuy = false;
+    if (bankBalance >= productCost) 
+    {
         let result = confirm("are you sure you want to buy");
-
         if (result) {
-            bankBalance -= productCost
-            updateBankInfo();
-            alert(`Enjoy your new laptop!${productCost} kr. have been withdrawn from your bank account`)
+            didBuy = true
         } else {
             result = confirm("are you absolutely sure you don't want to buy?")
             if (!result) {
-                bankBalance -= productCost
-                updateBankInfo();
-                alert(`Enjoy your new laptop!${productCost} kr. have been withdrawn from your bank account`)
+                didBuy = true
             } else {
                 result = confirm("so you don't want to buy the laptop? it's really not that expensive")
                 if (result) {
-                    bankBalance -= productCost
-                    updateBankInfo();
-                    alert(`Enjoy your new laptop!${productCost} kr. have been withdrawn from your bank account`)
+                    didBuy = true
                 } else {
                     result = confirm("just to be sure... So you mean you don't want to buy from us?")
-                    if (!result) {
-                        bankBalance -= productCost
-                        updateBankInfo();
-                        alert(`Enjoy your new laptop!${productCost} kr. have been withdrawn from your bank account`)
+                    if (result) {
+                        didBuy = true
                     } else {
                         alert("okay then... You could just have told us from the start")
-
                     }
                 }
             }
-
         }
-    } else {
+        if (didBuy) {
+            bankBalance -= productCost
+            updateBankInfo();
+            alert(`Enjoy your new laptop! ${productCost} kr. have been withdrawn from your bank account`)
+        }
+    } 
+    else 
+    {
         alert(`Insufficient funds! you need have ${productCost-bankBalance} kr. more on your bank account to buy the product(${productCost} kr.)`)
     }
 }
@@ -150,9 +149,6 @@ const buyNow = (productCost) => {
 // updates the html text to ensure it displays the actual bank informations
 updateBankInfo()
 const bank = {
-
-    bankBalance,
-    loanDebt,
     work,
     takeLoan,
     repayLoan,
