@@ -63,7 +63,7 @@ const repayLoan = () => {
 
 // function for taking a loan which put up a prompt asking for an amount that is max 2x your bank account. 
 const takeLoan = () => {
-    if (loanDebt <= 0) {
+    if (loanDebt <= 0 && bankBalance > 0) {
         let loanTmp = "";
         loanTmp = Number(prompt(`how much do you want to loan? max ${bankBalance*2}`));
         while (true) {
@@ -77,9 +77,12 @@ const takeLoan = () => {
         loanDebt += loanTmp;
         bankBalance += loanDebt;
         updateBankInfo();
-    } else {
+    } else if(bankBalance > 0 && loanDebt > 0) {
         alert(`Sorry, you still need to repay your previous loan of ${loanDebt} kr. before taking another loan`);
     }
+    else{
+        alert(`Sorry, you need to have money on your bank account before taking a loan`);
+    }  
 }
 
 // function for banking your salary/pay and taking up to 10% to the side for paying off debts. 
