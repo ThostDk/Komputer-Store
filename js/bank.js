@@ -128,7 +128,7 @@ const buyNow = (productCost) => {
                     didBuy = true
                 } else {
                     result = confirm("just to be sure... So you mean you don't want to buy from us?")
-                    if (result) {
+                    if (!result) {
                         didBuy = true
                     } else {
                         alert("okay then... You could just have told us from the start")
